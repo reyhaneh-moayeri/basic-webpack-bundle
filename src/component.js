@@ -1,5 +1,6 @@
 import pic1 from "./pic1.jpg";
 import _ from "lodash";
+import style from "./main.css";
 function component() {
   let m = document.createElement("main");
   let p = document.createElement("p");
