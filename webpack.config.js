@@ -1,10 +1,9 @@
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
-const json5 = require("json5");
+// const json5 = require("json5");
 module.exports = {
   mode: "development",
   entry: {
-    main: path.resolve(__dirname, "src/app.js"),
     index: path.resolve(__dirname, "src/index.js"),
   },
   output: {
@@ -21,57 +20,7 @@ module.exports = {
     hot: true, //hot reloading
     // watchContentBase: true,
   },
-  //   loaders
-  module: {
-    //   will be read from right to left => first css loader and then style loader
-    //   css loader => looks for the file , turns it into a module and gives it to the javascript
-    //   style-loader => it gives the imported from javascript file and inject it to our html file
-    rules: [
-      { test: /\.css$/, use: ["style-loader", "css-loader"] },
-      { test: /\.(svg|ico|png|webp|jpg|gif|jpeg)$/, type: "asset/resource" },
-      //   foe babel (js)
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
-        ],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        type: "asset/resource",
-      },
-      {
-        test: /\.(csv|tsv)$/i,
-        use: ["csv-loader"],
-      },
-      {
-        test: /\.xml$/i,
-        use: ["xml-loader"],
-      },
-      {
-        test: /\.json5$/i,
-        type: "json",
-        parser: {
-          parse: json5.parse,
-        },
-      },
-    ],
-  },
+  //   loader
 
   //   plugins
   plugins: [

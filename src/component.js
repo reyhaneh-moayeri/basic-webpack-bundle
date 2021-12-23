@@ -1,22 +1,14 @@
-import pic1 from "./pic1.jpg";
 import _ from "lodash";
-import style from "./main.css";
-import Data from "./data.xml";
-import Notes from "./data.csv";
-import json from "./data.json5";
+import printMe from "./print.js";
 function component() {
   let m = document.createElement("main");
   let p = document.createElement("p");
-  let img = document.createElement("img");
+  let btn = document.createElement("button");
+  btn.innerHTML = `Click me and check the console`;
+  btn.onclick = printMe;
+  m.appendChild(btn);
   m.append(p);
   p.textContent = _.join(["Hello", "webpack"], " ");
-  m.append(img);
-  img.src = pic1;
-  img.alt = "snow pic";
-  img.classList.add("shadowizard");
-  console.log(Data);
-  console.log(Notes);
-  console.log(json.title);
   return m;
 }
 
