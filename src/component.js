@@ -1,6 +1,9 @@
 import pic1 from "./pic1.jpg";
 import _ from "lodash";
 import style from "./main.css";
+import Data from "./data.xml";
+import Notes from "./data.csv";
+import json from "./data.json5";
 function component() {
   let m = document.createElement("main");
   let p = document.createElement("p");
@@ -11,6 +14,9 @@ function component() {
   img.src = pic1;
   img.alt = "snow pic";
   img.classList.add("shadowizard");
+  console.log(Data);
+  console.log(Notes);
+  console.log(json.title);
   return m;
 }
 
