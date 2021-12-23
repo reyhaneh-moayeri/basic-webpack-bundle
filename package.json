@@ -23,6 +23,7 @@
     "webpack-dev-server": "^4.7.1"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "node-sass": "^7.0.0",
     "shadowizardr": "^1.0.0"
   }
