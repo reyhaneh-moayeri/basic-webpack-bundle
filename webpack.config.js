@@ -24,7 +24,10 @@ module.exports = {
     //   will be read from right to left => first css loader and then style loader
     //   css loader => looks for the file , turns it into a module and gives it to the javascript
     //   style-loader => it gives the imported from javascript file and inject it to our html file
-    rules: [{ test: /\.css$/, use: ["style-loader", "css-loader"] }],
+    rules: [
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /\.(svg|ico|png|webp|jpg|gif|jpeg)$/, type: "asset/resource" },
+    ],
   },
 
   //   plugins
