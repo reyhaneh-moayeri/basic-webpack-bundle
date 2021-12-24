@@ -4,6 +4,16 @@ module.exports = {
   mode: "development",
   entry: {
     index: path.resolve(__dirname, "src/index.js"),
+    another: path.resolve(__dirname, "src/another_module"),
+    // index: {
+    //   import: "./src/index.js",
+    //   dependOn: "shared",
+    // },
+    // another: {
+    //   import: "./src/another_module.js",
+    //   dependOn: "shared",
+    // },
+    // shared: "lodash",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -13,11 +23,16 @@ module.exports = {
     publicPath: "/",
   },
   devtool: "inline-source-map",
-  // devServer: {
-  //   port: 5000, //default 8080
-  //   open: true, //lunch the browser
-  //   hot: true, //hot reloading
-  // },
+  devServer: {
+    port: 5000, //default 8080
+    open: true, //lunch the browser
+    hot: true, //hot reloading
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
   //   loader
   //   plugins
   plugins: [
