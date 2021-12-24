@@ -3,8 +3,8 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    index: path.resolve(__dirname, "src/index.js"),
-    another: path.resolve(__dirname, "src/another_module"),
+    index: path.resolve(__dirname, "src/component.js"),
+    // another: path.resolve(__dirname, "src/another_module"),
     // index: {
     //   import: "./src/index.js",
     //   dependOn: "shared",
@@ -28,11 +28,11 @@ module.exports = {
     open: true, //lunch the browser
     hot: true, //hot reloading
   },
-  optimization: {
-    splitChunks: {
-      chunks: "all",
-    },
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: "all",
+  //   },
+  // },
   //   loader
   //   plugins
   plugins: [
