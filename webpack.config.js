@@ -1,6 +1,5 @@
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
-// const json5 = require("json5");
 module.exports = {
   mode: "development",
   entry: {
@@ -11,17 +10,15 @@ module.exports = {
     filename: "[name].[contenthash].js",
     assetModuleFilename: "[name][ext]",
     clean: true,
+    publicPath: "/",
   },
   devtool: "inline-source-map",
-  devServer: {
-    // contentBase: path.resolve(__dirname, "dist"),
-    port: 5000, //default 8080
-    open: true, //lunch the browser
-    hot: true, //hot reloading
-    // watchContentBase: true,
-  },
+  // devServer: {
+  //   port: 5000, //default 8080
+  //   open: true, //lunch the browser
+  //   hot: true, //hot reloading
+  // },
   //   loader
-
   //   plugins
   plugins: [
     new htmlWebpackPlugin({
