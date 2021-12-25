@@ -2,6 +2,8 @@ const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: {
@@ -63,6 +65,7 @@ module.exports = {
       // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
       // `...`,
       new CssMinimizerPlugin({ parallel: true }),
+      new TerserPlugin(),
     ],
     minimize: true,
   },
@@ -73,6 +76,14 @@ module.exports = {
       title: "Just a Demo",
       name: "index.html",
       template: path.resolve(__dirname, "src/temp.html"),
+      minify: {
+        removeComments: true,
+        removeAttributeQuotes: true,
+        collapseWhitespace: true,
+      },
+    }),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
