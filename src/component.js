@@ -1,11 +1,12 @@
 import _ from "lodash";
 import printMe from "./print.js";
+import "./style.css";
 function getComponent() {
   let m = document.createElement("main");
   let p = document.createElement("p");
   let btn = document.createElement("button");
   btn.innerHTML = `Click me and check the console`;
-  btn.onclick = printMe;
+  btn.onclick = printMe.bind(null, "hey");
   m.appendChild(btn);
   m.append(p);
   return import("lodash")
@@ -20,4 +21,4 @@ getComponent().then((component) => {
   document.body.appendChild(component);
 });
 
-export default component;
+export default getComponent;

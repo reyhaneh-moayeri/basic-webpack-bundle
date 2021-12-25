@@ -1,0 +1,15 @@
+body {
+  background-color: red;
+}
+p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 
+mini-css-extract-plugin
+
+in production it's nice to have a seperate css file rather than waiting for javascript to inject the styles for perfomance
+ */
+
+/* minify css => using CssMinimizerPlugin */
